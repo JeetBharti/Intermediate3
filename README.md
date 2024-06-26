@@ -1,0 +1,1 @@
+# Intermediate3.sol
