@@ -17,6 +17,10 @@ contract MyToken is ERC20 {
         _mint(msg.sender, 1000*10**18);
     }
 
+    function sendFunds(address , uint _amount) public payable{
+        require(balanceOf(msg.sender)> _amount, "unsufficient funds to transfer");
+    }
+
     function burn(uint256 amount) public {
         _burn(msg.sender, amount);
     }
