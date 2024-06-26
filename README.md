@@ -28,19 +28,28 @@ To work with this smart contract, you need to have the following installed:
 ## Smart Contract Details
    ```sh
    // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+   pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+   import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+   import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract MyToken is ERC20 {
-    constructor() ERC20("Jeet Bharti","JBT") {
-        _mint(msg.sender, 1000 * 10 ** 18);
-    }
+   contract MyToken is ERC20 {
+       constructor() ERC20("Jeet Bharti","JBT") {
+           _mint(msg.sender, 1000 * 10 ** 18);
+       }
 
-    function burn(uint256 amount) public {
-        _burn(msg.sender, amount);
-    }
-}
+       function burn(uint256 amount) public {
+           _burn(msg.sender, amount);
+       }
+   }
+
+## Explanation
+Contract Name: MyToken
+Inheritance: Inherits from ERC20 and Ownable contracts of OpenZeppelin.
+Constructor: Initializes the token with name "Jeet Bharti" and symbol "JBT", and mints 1000 tokens (with 18 decimals) to the deployer's address.
+Burn Function: Allows the caller to burn a specified amount of their tokens, reducing the total supply.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 
