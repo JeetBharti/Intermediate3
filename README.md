@@ -42,6 +42,8 @@ To work with this smart contract, you need to have the following installed:
            _burn(msg.sender, amount);
        }
    }
+```
+   
 
 ## Explanation
 Contract Name: MyToken
