@@ -13,8 +13,19 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract MyToken is ERC20 {
     constructor() ERC20("Jeet Bharti","JBT") {
+        _mint(msg.sender, 1000 * 10**18);  // Mint 1000 tokens to the contract deployer
+    }
 
-        _mint(msg.sender, 1000*10**18);
+    // Function to mint new tokens, callable only by the owner
+        function mint(address to, uint256 amount) public  {
+        _mint(to, amount);
+    }
+
+    // Override transfer function to include a balance check
+    function transfer(address recipient, uint256 amount) public override returns (bool) {
+        require(balanceOf(msg.sender) >= amount, "Insufficient funds to transfer");
+        _transfer(msg.sender, recipient, amount);
+        return true;
     }
 
     function sendFunds(address , uint _amount) public payable{
